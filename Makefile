@@ -1,5 +1,6 @@
 CC = g++
-CFLAGS = -Iinclude -std=c++11 
+CFLAGS = -Iinclude -std=c++17
+
 SRC = src/metroApp.cpp src/metroMap.cpp src/graph.cpp src/heap.cpp
 OBJ = $(SRC:.cpp=.o)
 EXEC = metroApp
