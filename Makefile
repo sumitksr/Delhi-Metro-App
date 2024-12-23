@@ -1,13 +1,17 @@
 CC = g++
-CFLAGS = -std=c++11 -Wall
-SRC = src/metroApp.cpp src/graph.cpp src/heap.cpp src/metroMap.cpp
+CFLAGS = -Iinclude -std=c++11 
+SRC = src/metroApp.cpp src/metroMap.cpp src/graph.cpp src/heap.cpp
 OBJ = $(SRC:.cpp=.o)
-OUT = metroApp
+EXEC = metroApp
 
-all: $(OUT)
+all: $(EXEC)
 
-$(OUT): $(OBJ)
-	$(CC) $(CFLAGS) -o $(OUT) $(OBJ)
+$(EXEC): $(OBJ)
+	$(CC) -o $(EXEC) $(OBJ)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
 
 clean:
-	rm -f $(OBJ) $(OUT)
+	rm -f $(OBJ) $(EXEC)
