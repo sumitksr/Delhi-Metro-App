@@ -2,23 +2,19 @@
 #define HEAP_H
 
 #include <vector>
-#include <limits>
-
-using namespace std;
+#include <utility>
 
 class MinHeap {
 public:
-    MinHeap(int size);
-    void insert(int node, int distance);
+    void insert(int key, int value);
     int extractMin();
-    bool isEmpty() const;
-    void decreaseKey(int node, int newDist);
+    void decreaseKey(int index, int newValue);
+    void heapifyUp(int index);
+    void heapifyDown(int index);
+    void swap(int index1, int index2);
 
 private:
-    vector<int> heap;
-    vector<int> distance;
-    vector<int> position;
-    int size;
+    std::vector<std::pair<int, int>> heap;
 };
 
-#endif
+#endif // HEAP_H
