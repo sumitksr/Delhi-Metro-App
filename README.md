@@ -76,7 +76,7 @@ The metro network is represented using an adjacency list:
 1. Clone the repository:
    ```bash
    git clone https://github.com/sumitksr/Delhi-Metro-App.git
-   cd Delhi-Metro-Rail-App
+   cd Delhi-Metro-App
 2. Compile the program:
    ```bash
    g++ -o delhi_metro metroApp.cpp
