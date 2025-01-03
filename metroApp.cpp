@@ -92,10 +92,12 @@ public:
     }
 
     int calculateFare(int distance) {
-        const int baseFare = 10;
-        const int perKmCharge = 2;
-        return baseFare + distance * perKmCharge;
-    }
+    const int baseFare = 10;
+    const int perKmCharge = 2;
+    int totalFare = baseFare + distance * perKmCharge;
+    return min(totalFare, 60); // Cap the fare at ₹60
+}
+
 
     void displayGraph() {
         for (const auto& [station, neighbors] : adjList) {
@@ -161,7 +163,8 @@ int main() {
         cout << "\nTotal Distance: " << totalDistance << " km\n";
 
         int fare = metro.calculateFare(totalDistance);
-        cout << "Total Fare: ₹" << fare << "\n";
+        cout << "Total Fare: Rs. " << fare << "\n";
+
     } else {
         cout << "\nNo path found between " << source << " and " << destination << "!\n";
     }
