@@ -19,7 +19,6 @@ string normalize(const string& str) {
     transform(result.begin(), result.end(), result.begin(), ::tolower);
     return result;
 }
-
 class MetroGraph {
 private:
     unordered_map<string, vector<pair<pair<string, int>, string>>> adjList;
