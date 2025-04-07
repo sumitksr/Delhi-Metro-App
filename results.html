@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Details - Delhi Metro Rail Corporation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span>Delhi Metro Rail Corporation</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="map.html">Metro Map</a>
+                <a href="#">Fares</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="results-container">
+        <div class="journey-summary">
+            <h1 id="journeyTitle"><span id="sourceStation"></span> → <span id="destinationStation"></span></h1>
+        </div>
+        
+        <div class="journey-card">
+            <div class="journey-header">
+                <h2>Journey Details</h2>
+            </div>
+            
+            <div class="journey-body">
+                <div class="journey-details">
+                    <div class="detail-item">
+                        <h3>Starting Time</h3>
+                        <p id="journeyStartTime">--:--</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Arrival Time</h3>
+                        <p id="journeyEndTime">--:--</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Duration</h3>
+                        <p><span id="journeyDuration">0</span> mins</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Stations</h3>
+                        <p id="totalStations">0</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Fare</h3>
+                        <p>₹<span id="totalFare">0</span></p>
+                        <div class="fare-notice">Token fare</div>
+                    </div>
+                </div>
+                
+                <div class="route-details">
+                    <h3>Complete Route</h3>
+                    <div id="routeMap">
+                        <!-- Route map will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="index.html" class="action-button">
+                <i class="fas fa-arrow-left"></i>
+                Plan Another Journey
+            </a>
+            <a href="map.html" class="action-button outline">
+                <i class="fas fa-map"></i>
+                View on Map
+            </a>
+            <button class="action-button outline">
+                <i class="fas fa-download"></i>
+                Save Journey
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> Helpline: 155370</p>
+                <p><i class="fas fa-envelope"></i> Email: helpline@dmrc.org</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About DMRC</a>
+                <a href="#">Latest News</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="metro.js"></script>
+    <script src="results.js"></script>
+</body>
+</html> 

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Map - Delhi Metro Rail Corporation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Preload large image -->
+    <link  href="images/Metro map.jpg" as="image">
+    <style>
+        .loading-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #0954c9;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-text {
+            margin-left: 15px;
+            font-weight: 500;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span>Delhi Metro Rail Corporation</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="map.html" class="active">Metro Map</a>
+                <a href="#">Fares</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="map-hero">
+        <div class="container">
+            <h1>Delhi Metro Network Map</h1>
+            <p>Explore the entire Delhi Metro network with all lines and stations</p>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <div class="map-controls">
+            <div class="control-buttons">
+                <button class="control-btn active" id="allLinesBtn">
+                    <i class="fas fa-layer-group"></i> All Lines
+                </button>
+                <button class="control-btn" id="blueLine">
+                    <span class="line-indicator blue-line"></span> Blue Line
+                </button>
+                <button class="control-btn" id="yellowLine">
+                    <span class="line-indicator yellow-line"></span> Yellow Line
+                </button>
+                <button class="control-btn" id="redLine">
+                    <span class="line-indicator red-line"></span> Red Line
+                </button>
+                <button class="control-btn" id="greenLine">
+                    <span class="line-indicator green-line"></span> Green Line
+                </button>
+                <button class="control-btn" id="violetLine">
+                    <span class="line-indicator violet-line"></span> Violet Line
+                </button>
+                <button class="control-btn" id="pinkLine">
+                    <span class="line-indicator pink-line"></span> Pink Line
+                </button>
+                <button class="control-btn" id="magentaLine">
+                    <span class="line-indicator magenta-line"></span> Magenta Line
+                </button>
+                <button class="control-btn" id="orangeLine">
+                    <span class="line-indicator orange-line"></span> Airport Line
+                </button>
+                <button class="control-btn" id="greyLine">
+                    <span class="line-indicator grey-line"></span> Grey Line
+                </button>
+            </div>
+            <div class="search-station">
+                <div class="search-input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="stationSearch" placeholder="Search for a station...">
+                </div>
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="map-legends">
+                <h3>Map Legends</h3>
+                <div class="legend-item">
+                    <span class="legend-interchange"></span>
+                    <span>Interchange Station</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-terminal"></span>
+                    <span>Terminal Station</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="metro-map" style="width: 100%; height: 500px;">
+            <div class="map-zoom-controls">
+                <button id="zoomIn"><i class="fas fa-plus"></i></button>
+                <button id="zoomOut"><i class="fas fa-minus"></i></button>
+                <button id="resetZoom"><i class="fas fa-undo"></i></button>
+            </div>
+            
+            <div class="map-responsive-container" style="width: 100%; height: 100%; position: relative;">
+                <div class="loading-container" id="mapLoader">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Loading Map...</div>
+                </div>
+                <div class="metro-map-container" style="width: 100%; height: 100%;">
+                    <img src="images/Metro map.jpg" alt="Delhi Metro Map" id="metroMapImage" class="metro-map-img" style="width: auto; max-width: 100%; height: auto; max-height: 100%; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="map-info-section">
+        <div class="container">
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-subway"></i>
+                    <h3>12 Lines</h3>
+                    <p>Covering the entire Delhi NCR region</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>286 Stations</h3>
+                    <p>Easy access across the city</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-route"></i>
+                    <h3>390 Km</h3>
+                    <p>Total network coverage</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>6 AM - 11 PM</h3>
+                    <p>Service hours (may vary)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> Helpline: 155370</p>
+                <p><i class="fas fa-envelope"></i> Email: helpline@dmrc.org</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About DMRC</a>
+                <a href="#">Latest News</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add script to handle image loading -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const metroMapImage = document.getElementById('metroMapImage');
+            const mapLoader = document.getElementById('mapLoader');
+            
+            // Check if image is already cached and loaded
+            if (metroMapImage.complete) {
+                mapLoader.style.display = 'none';
+            } else {
+                metroMapImage.onload = function() {
+                    mapLoader.style.display = 'none';
+                };
+                
+                // If image takes too long or fails to load
+                setTimeout(function() {
+                    if (mapLoader.style.display !== 'none') {
+                        mapLoader.innerHTML = '<p>Map is taking longer than expected to load. Please wait...</p>';
+                    }
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html> 
